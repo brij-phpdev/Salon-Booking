@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '{{server}}',
-	'username' => '{{username}}',
-	'password' => '{{password}}',
-	'database' => '{{database}}',
+	'hostname' => 'localhost',
+	'username' => 'u397536656_salon_book_usr',
+	'password' => '8}_!.)%%A$tnh65@20232209',
+	'database' => 'u397536656_salon_booking',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

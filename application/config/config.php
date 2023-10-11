@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '{{base_url}}';
+$config['base_url'] = 'https://newsalon.icet.org.in/';
 
 /*
 |--------------------------------------------------------------------------
@@ -324,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '{{encryption_key}}';
+$config['encryption_key'] = 'aa3b63d6ff20e052cb29798bff0b7ad4';
 
 /*
 |--------------------------------------------------------------------------
