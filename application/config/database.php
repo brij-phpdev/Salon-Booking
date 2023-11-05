@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'srv1112.hstgr.io',
 	'username' => 'u963541063_salon_bkng_usr',
-	'password' => '8}_!.)%%A$tnh65@11Oct23',
+	'password' => '8}_!.)%%Atnh65@11Oct23',
 	'database' => 'u963541063_salon_booking',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
