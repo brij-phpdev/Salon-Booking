@@ -9,7 +9,7 @@
 						</li>
 					<?php } ?>
                     <li class="nav-item dropdown hidden-caret">
-                        <a target="_blank" class="btn btn-primary pb-1 pt-1 pl-3 pr-3" href="<?php anchor_to() ?>"><i class="fas fa-external-link-alt mr-1"></i> Visit Website</a>
+                        <a target="_blank" class="btn btn-primary pb-1 pt-1 pl-3 pr-3" href="<?php echo 'http://empiresalon.co/' ?>"><i class="fas fa-external-link-alt mr-1"></i> Visit Website</a>
 					</li>
 					<?php if($page_data['update']['status'] == 'available') { ?>
 						<li class="nav-item dropdown hidden-caret">

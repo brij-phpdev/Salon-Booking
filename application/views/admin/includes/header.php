@@ -1,6 +1,6 @@
 <div class="logo-header position-fixed" data-background-color="white">
 	<a href="<?php anchor_to(GENERAL_CONTROLLER . '/settings') ?>" class="logo">
-		<img src="<?php uploads('img/' . $page_data['general']['logo']) ?>" alt="navbar brand" class="navbar-brand">
+            <img src="<?php uploads('img/' . $page_data['general']['logo']) ?>" alt="navbar brand" width="90%" class="navbar-brand">
 	</a>
 	<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon">

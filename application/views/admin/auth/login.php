@@ -4,7 +4,8 @@
 		<div class="login-aside w-100 d-flex align-items-center justify-content-center bg-redish-gradient">
 			<div class="container container-login container-transparent animated fadeIn bg-white">
 				<h3 class="text-center text-dark">
-                    Desclix
+                    Empire Salon
+                    
                 </h3>
 				<div class="alert alert-danger" id="somethngwrng" style="display:none">Script tag in fields not allowed.</div>
 				<form method="POST" class="login-form">

@@ -95,6 +95,7 @@ function getDomain($url) {
 }
 
 function anchor_to($path = '') {
+    die('here');
 	echo base_url($path);
 	return true;
 }
