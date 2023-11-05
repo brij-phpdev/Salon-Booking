@@ -30,7 +30,7 @@
 													<span class="block">
 														New Update Available
 													</span>
-													<span class="time">Your current version is outdated.</span> 
+													<span class="time">Your notifications will appear here.</span> 
 												</div>
 											</a>
 										</div>

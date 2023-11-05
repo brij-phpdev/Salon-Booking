@@ -31,6 +31,7 @@ class Homepage extends CI_Controller {
 	}
 
 	public function index() {
+            die('');
 		$data 			= $this->ServiceModel->serviceList();
 		$gcategories 	= $this->GalleryModel->listCat();
         $galleryImages 	= $this->GalleryModel->listGallery();

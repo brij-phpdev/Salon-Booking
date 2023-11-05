@@ -124,6 +124,7 @@ function getDomain($url) {
 // Quicker alternative to echo base_url();
 function anchor_to($path = '') {
 	echo base_url($path);
+        
 	return true;
 }
 
