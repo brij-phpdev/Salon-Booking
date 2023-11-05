@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'srv1112.hstgr.io',
+	'hostname' => '62.72.28.103',
 	'username' => 'u963541063_salon_bkng_usr',
 	'password' => '8}_!.)%%Atnh65@11Oct23',
 	'database' => 'u963541063_salon_booking',
