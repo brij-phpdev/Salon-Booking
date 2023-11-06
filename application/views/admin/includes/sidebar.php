@@ -15,12 +15,7 @@
 								<p>General Settings</p>
 							</a>
                         </li>
-						<li class="nav-item <?php echo_if($uri == GENERAL_CONTROLLER . '/themes' || $uri == GENERAL_CONTROLLER . '/upload_theme', 'active'); ?>">
-							<a href="<?php anchor_to(GENERAL_CONTROLLER . '/themes') ?>">
-								<i class="fas fa-brush"></i>
-								<p>Themes</p>
-							</a>
-						</li>
+						
 						<li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
@@ -183,12 +178,7 @@
 							</span>
 							<h4 class="text-section">Other</h4>
                         </li>
-						<li class="nav-item <?php echo_if($uri == UPDATES_CONTROLLER . '/main', 'active'); ?>">
-							<a href="<?php anchor_to(UPDATES_CONTROLLER . '/main') ?>">
-								<i class="fas fa-wrench"></i>
-								<p>Script Updates</p>
-							</a>
-                        </li>
+						
 						<li class="nav-item <?php echo_if($uri == GENERAL_CONTROLLER . '/purge_cache', 'active'); ?>">
 							<a href="<?php anchor_to(GENERAL_CONTROLLER . '/purge_cache') ?>">
 								<i class="fas fa-trash-alt"></i>
