@@ -41,6 +41,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
+                                            <th scope="col">Package</th>
                                             <th scope="col">Name</th>
                                             <th scope="col">Service Agents</th>
                                             <th scope="col">Description</th>
@@ -52,12 +53,19 @@ $this->load->view('admin/includes/navbar'); ?>
                                     <tbody>
                                         <?php if(!$agent_List_By_Service){?>
                                             <tr>
-                                                <td colspan="6" class="text-center"><h4 class="text-muted">No Service Found</h4></td>
+                                                <td colspan="8" class="text-center"><h4 class="text-muted">No Service Found</h4></td>
                                             </tr>
                                         <?php } else{?>
                                         <?php foreach ($agent_List_By_Service as $serv ){ ?>
                                         <tr>
                                             <td><?php echo esc($serv['id'], true) ?></td>
+                                            <td><?php  
+                                            foreach($packages as $package):
+                                                if($package['id']==esc($serv['category_id'], true)){
+                                                    echo $package['cName'];
+                                                }
+                                            endforeach;
+                                             ?></td>
                                             <td><?php echo esc($serv['title'], true) ?></td>
 											<td>
 											<?php 

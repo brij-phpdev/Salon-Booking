@@ -34,12 +34,19 @@
 							</span>
 							<h4 class="text-section">Services</h4>
                         </li>
+                                <li class="nav-item <?php echo_if($uri == SERVICE_CONTROLLER . '/packages', 'active'); ?>">
+							<a href="<?php anchor_to(SERVICE_CONTROLLER. '/packages') ?>">
+								<i class="fas fa-image"></i>
+								<p>Service Packages</p>
+							</a>
+						</li>
 						<li class="nav-item <?php echo_if($uri == SERVICE_CONTROLLER . '/services' || $uri == SERVICE_CONTROLLER . '/addservice' || $uri == SERVICE_CONTROLLER . '/editservice', 'active'); ?>">
 							<a href="<?php anchor_to(SERVICE_CONTROLLER) ?>">
 								<i class="fas fa-shopping-basket"></i>
 								<p>All Services</p>
 							</a>
 						</li>
+
 						<li class="nav-item <?php echo_if($uri == AGENTS_CONTROLLER . '/' || $uri == AGENTS_CONTROLLER . '/addagent' || $uri == AGENTS_CONTROLLER . '/editagent', 'active'); ?>">
 							<a href="<?php anchor_to(AGENTS_CONTROLLER) ?>">
 								<i class="fas fa-users"></i>
@@ -50,6 +57,18 @@
 							<a href="<?php anchor_to(CONTACT_CONTROLLER) ?>">
 								<i class="fas fa-address-card"></i>
 								<p>Contact Settings</p>
+							</a>
+						</li>
+						<li class="nav-section">
+							<span class="sidebar-mini-icon">
+								<i class="fa fa-ellipsis-h"></i>
+							</span>
+							<h4 class="text-section">Coupons</h4>
+                        </li>
+						<li class="nav-item <?php echo_if($uri == COUPONS_CONTROLLER . '/', 'active'); ?>">
+							<a href="<?php anchor_to(COUPONS_CONTROLLER. '/') ?>">
+								<i class="fas fa-money-bill"></i>
+								<p>Coupons</p>
 							</a>
 						</li>
 						<li class="nav-section">
@@ -82,7 +101,7 @@
 								<p>Blog Posts</p>
 							</a>
 						</li>
-						<li class="nav-section">
+<!--						<li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
 							</span>
@@ -135,7 +154,7 @@
 								<i class="fas fa-expand"></i>
 								<p>Ad Settings</p>
 							</a>
-						</li>
+						</li>-->
 						<li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>

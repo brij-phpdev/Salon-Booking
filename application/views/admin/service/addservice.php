@@ -34,6 +34,17 @@ $this->load->view('admin/includes/navbar'); ?>
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
+                                        <label for="agent">Select Package <span class="text-danger">*</span></label>
+                                        <?php echo form_error('category_id', '<br><span class="text-danger">', '</span>'); ?>
+                                        <select name="category_id" class="form-control" >
+                                                                                                    <optgroup label="Select Package">
+                                                <?php foreach($packages as $package){ ?>
+                                                    <option value="<?php echo esc($package['id'], true)?>"><?php echo esc($package['cName'], true)?></option>
+                                                <?php } ?>
+                                                                                                    </optgroup>
+                                        </select>
+                                    </div>
+                                <div class="form-group">
                                     <label for="service-title">Title <span class="text-danger">*</span></label>
                                     <?php echo form_error('service-title', '<br><span class="text-danger">', '</span>'); ?>
                                     <input class="form-control" type="text" id="service-title" name="service-title" placeholder="Choose Service Title" value="<?php echo set_value('service-title')?>">
@@ -121,7 +132,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                 <div class="form-group text-right">
                                     <input type="hidden" name="submit" value="Submit">
                                     <a href="<?php anchor_to(SERVICE_CONTROLLER . '/services'); ?>" class="btn btn-danger text-white mr-4"><i class="fas fa-arrow-left mr-1"></i> Back</a>
-                                    <button class="btn btn-success"><i class="fas fa-plus mr-1"></i> Create Page</button>
+                                    <button class="btn btn-success"><i class="fas fa-plus mr-1"></i> Add Service</button>
                                 </div>
                             </div>
                         </div>

@@ -48,7 +48,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                     <?php echo form_error('contact-address', '<br><span class="text-danger">', '</span>'); ?>
                                     <textarea id="service-content" name="contact-address" class="form-control"><?php echo esc(set_value('contact-address', $contactDetails['address']), true)?></textarea>
                                 </div>
-                                <div class="row">
+                                <div class="row d-none">
                                     <div class="col-8">
                                         <div class="form-group">
                                             <label for="map_src">Google Map Src <span class="text-danger">*</span></label>

@@ -6,7 +6,7 @@
             $res = $this->db->select()->order_by('id','desc')->get('servicetable')->result_array();
             return $res;
         }
-
+       
         public function serviceListWdAgent() {
 			$res = $this->db->select('*, servicetable.id as id, agents.id as agents_id')
 							->from('servicetable')
@@ -42,6 +42,32 @@
             return false;
         }
 
+        public function serviceCategoryList(){
+            $res = $this->db->select()->order_by('id','desc')->get('service_cat_table')->result_array();
+            return $res;
+        }
+
+        
+        public function addServiceCategory($array) {
+            if($this->db->insert('service_cat_table', $array))
+                return true;
+            return false;
+        }
+
+        public function getserviceCategory($id) {
+            $res = $this->db->limit(1)->where('id', $id)->get('service_cat_table')->row_array();
+            return $res;
+        }
+
+        public function updateServiceCategory($id, Array $fields){
+            $query = $this->db->where(['id'=>$id])->update('service_cat_table',$fields);
+            return $query;
+        }
+
+        public function deleteServiceCategory($id) {
+            $this->db->delete('service_cat_table',['id'=>$id]);
+        }
+        
         public function getservice($id) {
             $res = $this->db->limit(1)->where('id', $id)->get('servicetable')->row_array();
             return $res;
