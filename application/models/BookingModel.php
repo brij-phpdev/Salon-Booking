@@ -49,13 +49,22 @@
 		}
 
 		public function showAdminBookings(){
-			$res = $this->db->select('*,bookingtbl.id as id, servicetable.id as service_id, logintbl.id as logintbl_id, agents.id as agents_id')
+			$res = $this->db->select('*,bookingtbl.id as id, servicetable.title as servicetitle, servicetable.id as serviceId, logintbl.id as logintbl_id, agents.id as agents_id')
 							->from('bookingtbl')
-							->join('servicetable', 'bookingtbl.serviceId = servicetable.id')
+							->join('servicetable', 'bookingtbl.serviceId = servicetable.id','left')
 							->join('logintbl', 'bookingtbl.userId = logintbl.id')
 							->join('agents', 'bookingtbl.agentId = agents.id', 'left')
 							->order_by('bookingtbl.id','desc')
 							->get();
+//                        echo $this->db->last_query();die;
+
+//			echo $this->db->select('*,bookingtbl.id as id, servicetable.id as service_id, logintbl.id as logintbl_id, agents.id as agents_id')
+//							->from('bookingtbl')
+//							->join('servicetable', 'bookingtbl.serviceId = servicetable.id')
+//							->join('logintbl', 'bookingtbl.userId = logintbl.id')
+//							->join('agents', 'bookingtbl.agentId = agents.id', 'left')
+//							->order_by('bookingtbl.id','desc')
+//							->get();
 			if($res->num_rows()) {
 				return $res->result_array();
 			}

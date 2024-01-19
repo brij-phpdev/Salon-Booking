@@ -2,8 +2,18 @@
     
     class ServiceModel extends CI_Model{
        
-        public function serviceList(){
+        public function __construct() {
+            parent::__construct();
+        }
+        
+        public function record_count() {
+            return $this->db->count_all("servicetable");
+        }
+        
+        public function serviceList($limit, $start){
+            $this->db->limit($limit, $start);
             $res = $this->db->select()->order_by('id','desc')->get('servicetable')->result_array();
+//            print_r($res);
             return $res;
         }
        

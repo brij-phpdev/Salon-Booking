@@ -11,18 +11,20 @@ class Service extends CI_Controller {
 		$this->load->database();
 		$this->load->model('AdminModel');
 		$this->load->model('AgentsModel');
+		$this->load->model('ImportExcelModel');
+                $this->load->library("pagination");
 		
 		$this->page_data 				= $this->MainModel->pageData();
-        $this->page_data['update']  	= $this->MainModel->updates_settings();
-        $this->admin_user 				= $this->AdminModel->adminDetails();
-        $this->all_services 			= $this->ServiceModel->serviceList();
-        $this->all_cat_services 			= $this->ServiceModel->serviceCategoryList();
-        $this->agent_List_By_Service 	= $this->ServiceModel->agentListByService();
-        $this->all_agents   			= $this->AgentsModel->agentList();
-        
-        if(!$this->admin_user) {
-            redirect(base_url(AUTH_CONTROLLER . '/login?redirect='.urlencode(current_url())));
-        }
+            $this->page_data['update']  	= $this->MainModel->updates_settings();
+            $this->admin_user 				= $this->AdminModel->adminDetails();
+//            $this->all_services 			= $this->ServiceModel->serviceList();
+            $this->all_cat_services 			= $this->ServiceModel->serviceCategoryList();
+            $this->agent_List_By_Service 	= $this->ServiceModel->agentListByService();
+            $this->all_agents   			= $this->AgentsModel->agentList();
+
+            if(!$this->admin_user) {
+                redirect(base_url(AUTH_CONTROLLER . '/login?redirect='.urlencode(current_url())));
+            }
 	}
 	
 	public function index(){
@@ -151,22 +153,26 @@ class Service extends CI_Controller {
         
 	public function services() {
 
+            $config = array();
+                $config['base_url'] = base_url() . 'service/services/';
+                $config['total_rows'] = $this->ServiceModel->record_count();
+                $config['per_page'] = 20;
+                $config["uri_segment"] = 3;
+                $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+                
+
+                $this->pagination->initialize($config);
+                
 		$data = array(
             'page_data' 				=> $this->page_data,
             'page_title' 				=> 'All Services',
             'user' 						=> $this->admin_user,
-            'services' 					=> $this->all_services,
-            'agent_List_By_Service' 	=> $this->agent_List_By_Service,
+            'services' 					=> $this->ServiceModel->serviceList($config['per_page'],$page),
+            'agent_List_By_Service' 	=> $this->ServiceModel->serviceList($config['per_page'],$page),
             'packages' 	=> array_values($this->all_cat_services)
 		);
-//                $catArray = array();
-////                array_walk($this->all_cat_services, function(&$value, &$key) use ($catArray){
-////                    print_r($value);
-////                    print_r($key);
-//////                $value = array_combine($key,$value);
-////            });
-////            print_r($this->all_cat_services);
-//print_r($catArray);
+                $data["links"] = $this->pagination->create_links();
+
 		$this->load->view('admin/service/service', $data);
 	}
         
@@ -290,8 +296,75 @@ class Service extends CI_Controller {
         }
 		$this->load->view('admin/service/addservice', $data);
 	}
+        
+        
+	public function importservice() {
 
-	public function editservice($id = null) {
+            // read file..
+            
+            $this->ImportExcelModel->getLastServiceId();
+            
+            
+            $data = array(
+                'page_data' => $this->page_data,
+                'page_title' => 'Import Service',
+                'user' => $this->admin_user,
+            );
+
+            if ($this->input->post('submit') && !$data['user']['disabled']) {
+
+                $rules = array(
+                    array(
+                        'field' => 'service-import',
+                        'label' => 'Import Services',
+                        'rules' => 'required'
+                    )
+                );
+
+                $this->form_validation->set_rules($rules);
+//                $validation = $this->form_validation->run();
+
+                $this->load->library('upload', array(
+                    'upload_path' => APPPATH . 'uploads/services/',
+                    'allowed_types' => 'xls|xlsx',
+                    'overwrite' => true,
+                ));
+
+                if (file_exists($_FILES['service-import']['tmp_name']) == '') {
+                    $data['service_import_error'] = 'Please must select excel file for service.';
+                } else {
+//                    var_dump($validation);die;
+                    if ($this->upload->do_upload('service-import')) {
+
+                        if (file_exists($_FILES['service-import']['tmp_name'])) {
+
+                            $success = $this->upload->do_upload('service-import');
+                            if ($success) {
+                                
+                                $this->read_service_phpexcel_io   = $this->ImportExcelModel->readLatestServiceImportFile();
+                                
+
+                            } else {
+                                $data['service_import_error'] = $this->upload->display_errors();
+                            }
+                        }
+
+    //					$this->Import->addService($new_page);
+                        $data['alert'] = array('type' => 'alert alert-success', 'msg' => ' [ '.$this->read_service_phpexcel_io.' ] Service(s) Imported Successfully.');
+                    } else {
+                        $data['service_import_error'] = $this->upload->display_errors();
+                    }
+                }
+            }
+            $this->load->view('admin/service/importservice', $data);
+        }
+        
+        
+        public function realServiceImport($filename) {
+//            $read = $thi
+        }
+
+        public function editservice($id = null) {
         $this->load->model('ServiceModel');
         if($service = $this->ServiceModel->getservice($id)) {
             $data = array(

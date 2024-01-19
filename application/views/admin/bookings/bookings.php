@@ -56,17 +56,33 @@ $this->load->view('admin/includes/navbar'); ?>
                                                 <td colspan="11" class="text-center"><h4 class="text-muted">No Booking Found</h4></td>
                                             </tr>
                                         <?php } else{?>
-                                        <?php foreach ($bookings as $booking ){ ?>
+                                        <?php foreach ($bookings as $booking ){ 
+//                                            print_r($booking);die;
+                                            $otherServices = '';
+                                            if(isset($booking['other_services']) && !empty($booking['other_services'])):
+                                                $otherServicesArr = unserialize($booking['other_services']);
+                                                
+                                                foreach($otherServicesArr as $otherServicesVal){
+                                                    if(!empty($otherServicesVal)){
+//                                                        $servicename = getServiceTitleByName($otherServicesVal);
+//                                                        print_r($servicename);
+//                                                        $otherServices .= base64_decode($otherServicesVal).",";
+                                                    }
+                                                }
+                                            endif;
+//                                            print_r($otherServicesArr);
+//                                            echo $otherServices;
+                                            ?>
                                         <tr>
                                             <td><?php echo esc($booking['id'], true) ?></td>
-                                            <td><?php echo esc($booking['title'], true) ?></td>
+                                            <td><?php echo esc($booking['servicetitle'], true) .$otherServices ?></td>
                                             <td><?php if($booking['agents_id']==0 ||$booking['agents_id']==''){echo 'Any Agent';}else{echo esc($booking['agentName'], true);} ?></td>
                                             <td><?php echo esc($booking['date'], true) ?></td>
                                             <td><?php echo esc($booking['timing'], true) ?></td>
                                             <td><?php echo esc($booking['adults'], true) ?></td>
                                             <td><?php echo esc($booking['childrens'], true) ?></td>
                                             <td><?php echo esc($booking['fullName'], true) ?></td>
-                                            <td><?php echo '$'.($booking['adults'] + $booking['childrens'])*$booking['price'] ?></td>
+                                            <td><?php echo  '₹'.($booking['adults'] + $booking['childrens'])*$booking['price'] ?></td>
                                             <td><?php if($booking['serviceStatus'] == '' || $booking['serviceStatus'] == '0'){ echo '<span class="badge badge-warning">Pending</span>'; } else if($booking['serviceStatus'] == '1') { echo '<span class="badge badge-success">Confirmed</span>'; } else if($booking['serviceStatus'] == '2') { echo '<span class="badge badge-secondary">Cancelled</span>'; } ?></td>
                                             <td><?php if(!$booking['paymentStatus']){ echo '<span class="badge badge-danger">Due</span>'; } else { echo '<span class="badge badge-success">paid</span>'; } ?></td>
                                             <td class="text-right">
