@@ -55,15 +55,25 @@ $this->load->view('admin/includes/navbar'); ?>
                                     <textarea id="service-content" name="service-content" class="form-control"><?php echo set_value('service-content')?></textarea>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-12">
+                                    <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="service-price">Service Price <span class="text-danger">*</span></label>
                                                     <?php echo form_error('service-price', '<br><span class="text-danger">', '</span>'); ?>
-                                                    <input value="1.0" data-decimals="2" min="1" step="0.1" class="form-control" type="number" id="service-price" name="service-price" placeholder="Choose Service Price" value="<?php echo set_value('service-price')?>">
+                                                    <input data-decimals="2" min="1" step="0.1" class="form-control" type="number" id="service-price" name="service-price" placeholder="Choose Service Price" value="<?php echo esc(set_value('service-price', $service['price']), true)?>">
                                                 </div>
                                             </div>
+                                    <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="service-price">Special Price <span class="text-danger">*</span></label>
+                                                    <?php echo form_error('member_price', '<br><span class="text-danger">', '</span>'); ?>
+                                                    <input data-decimals="2" min="1" step="0.1" class="form-control" type="number" id="service-price" name="member_price" placeholder="Choose Service Price" value="<?php echo esc(set_value('member_price', $service['member_price']), true)?>">
+                                                </div>
+                                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            
 
                                             <div class="col-md-6">
                                                 <div class="form-group">

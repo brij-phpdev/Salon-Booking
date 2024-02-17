@@ -60,7 +60,7 @@ $this->load->view('admin/includes/navbar'); ?>
 										<div class="form-group">
 											<label>Logo</label>
 											<?php echo isset($logo_error) ? '<div class="alert alert-danger">' . $logo_error . '</div>' : '' ?>
-											<span class="br-b-0 alert d-block mb-0 text-center" href="#"><img id="logo-visualize" for="logo" src="<?php uploads('img/'.$page_data['general']['logo']); ?>" alt="Logo" class="img-responsive image-visualizer" height="56"></span>
+											<span class="br-b-0 alert d-block mb-0 text-center" href="#"><img id="logo-visualize" for="logo" src="<?php uploads('img/'.$page_data['general']['logo']); ?>" alt="Logo" class="img-responsive image-visualizer" height="42"></span>
 											<input class="br-t-0 basic-file alert d-block w-100" type="file" id="logo" name="site-logo">
 										</div>
 									</div>
@@ -68,7 +68,7 @@ $this->load->view('admin/includes/navbar'); ?>
 										<div class="form-group">
 											<label>Favicon</label>
 											<?php echo isset($favicon_error) ? '<div class="alert alert-danger">' . $favicon_error . '</div>' : '' ?>
-											<span class="br-b-0 alert d-block mb-0 text-center" href="#"><img id="favicon-visualize" src="<?php uploads('img/'.$page_data['general']['favicon']); ?>" alt="Favicon" class="img-responsive image-visualizer" height="56"></span>
+											<span class="br-b-0 alert d-block mb-0 text-center" href="#"><img id="favicon-visualize" src="<?php uploads('img/'.$page_data['general']['favicon']); ?>" alt="Favicon" class="img-responsive image-visualizer" height="42"></span>
 											<input class="br-t-0 basic-file alert d-block w-100" type="file" id="favicon" name="site-favicon">
 										</div>
 									</div>

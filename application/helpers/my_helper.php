@@ -114,4 +114,9 @@ function uploads($path) {
 	echo base_url('application/uploads/'.$path);
 	return true;
 }
+
+function getServiceTitleByName($serviceId){
+    echo "asdadd dfadsf asdf asdf f ",$serviceId;
+    return array('45'=>'ERNOLD');
+}
 ?>

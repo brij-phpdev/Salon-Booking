@@ -2,31 +2,28 @@
 
 defined('BASEPATH') || exit('Access Denied.');
 
-require_once APPPATH . 'third_party/libraries/hybridauth/autoload.php';
+//require_once APPPATH .'third_party/PhpSpreadsheet/IOFactory.php';
 
-class Facebook_auth {
+class PHPSpreadsheet {
     private $CI;
     private $config;
     private $adapter;
+    private $PHPSpreadsheet;
 
-    public function __construct($options) {
+    public function __construct() {
         $this->CI =& get_instance();
-        $this->config = array(
-            'callback' => base_url(OAUTH_CONTROLLER . '/facebook'),
-            'keys'     => array(
-                'id'     => $options['public_key'],
-                'secret' => $options['secret_key']
-            )
-        );
-
-        $this->adapter = new Hybridauth\Provider\Facebook($this->config);
+        
+//        require_once APPPATH .'third_party/PhpSpreadsheet/IOFactory.php';
+        
+        $this->PHPSpreadsheet = new \PhpOffice\PhpSpreadsheet();
     }
 
-    public function authenticate() {
-        $this->adapter->authenticate(); // Authenticate The User.
-        $token = $this->adapter->getAccessToken();
-        $profile = $this->adapter->getUserProfile();
-
-        return $profile;
+    public function readfile($filename) {
+//        $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+//        var_dump($reader);die;
+        $reader = $this->PHPSpreadsheet;
+                var_dump($reader);die;
+        $spreadsheet = $reader->load($filename);
+        print_r($spreadsheet);die;
     }
 }

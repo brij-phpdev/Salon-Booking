@@ -34,6 +34,7 @@ $this->load->view('admin/includes/navbar'); ?>
                         <div class="card-header">
                             <div class="card-title float-left">Services</div>
                             <a href="<?php anchor_to(SERVICE_CONTROLLER . '/addservice') ?>" class="btn btn-primary float-right"><i class="fas fa-plus mr-2"></i> Add Service</a>
+                            <a href="<?php anchor_to(SERVICE_CONTROLLER . '/importservice') ?>" class="btn btn-success float-right mr-2"><i class="fas fa-plus mr-2"></i> Import Service</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -67,16 +68,18 @@ $this->load->view('admin/includes/navbar'); ?>
                                             endforeach;
                                              ?></td>
                                             <td><?php echo esc($serv['title'], true) ?></td>
-											<td>
-											<?php 
-												$agents = '';
-												foreach($serv['agentIds'] as $agNm) {
-												$agents .= $agNm['agentName'] . ', ';
-												}
-												$agents = trim($agents, ', ');
-												echo esc($agents, true);
-											?>
-											</td>
+                                            <td>
+                                            <?php 
+                                                    $agents = '';
+                                                    if(!empty($serv['agentIds'])):
+                                                        foreach($serv['agentIds'] as $agNm) {
+                                                        $agents .= $agNm['agentName'] . ', ';
+                                                        }
+                                                        $agents = trim($agents, ', ');
+                                                    endif;
+                                                    echo esc($agents, true);
+                                            ?>
+                                            </td>
                                             <td><?php echo esc($serv['description'], true) ?></td>
                                             <td><?php echo esc($serv['price'], true) ?></td>
                                             <td><?php echo esc($serv['servDuration'], true) ?></td>
@@ -91,6 +94,8 @@ $this->load->view('admin/includes/navbar'); ?>
                                     </tbody>
                                 </table>
                             </div>
+                            <p><?php echo $links; ?></p>
+
                         </div>
                     </div>
                 </div>

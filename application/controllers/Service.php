@@ -190,6 +190,7 @@ class Service extends CI_Controller {
 			$title		= $this->security->xss_clean($this->input->post('service-title'));
             $content    = $this->security->xss_clean($this->input->post('service-content'));
             $price    	= $this->input->post('service-price');
+            $member_price    	= $this->input->post('member_price');
             $space    	= $this->input->post('service-space');
             $starts    	= $this->input->post('service-starts');
             $ends    	= $this->input->post('service-ends');
@@ -268,6 +269,7 @@ class Service extends CI_Controller {
 						'title'         => htmlentities($title),
 						'description'   => htmlentities($content),
 						'price'       	=> $price,
+                                                'member_price'      	=> $member_price,
 						'servSpace'     => $space,
 						'servStart'     => $starts,
 						'servEnd'       => $ends,
@@ -385,6 +387,7 @@ class Service extends CI_Controller {
                                 $category_id   	= $this->input->post('category_id');
 				$content    = $this->security->xss_clean($this->input->post('service-content'));
 				$price    	= $this->input->post('service-price');
+				$member_price    	= $this->input->post('member_price');
 				$space    	= $this->input->post('service-space');
 				$starts    	= $this->input->post('service-starts');
 				$ends    	= $this->input->post('service-ends');
@@ -447,6 +450,7 @@ class Service extends CI_Controller {
                         'category_id' => $category_id,
 						'description'   => htmlentities($content),
 						'price'      	=> $price,
+						'member_price'      	=> $member_price,
 						'servSpace'     => $space,
 						'servStart'     => $starts,
 						'servEnd'       => $ends,

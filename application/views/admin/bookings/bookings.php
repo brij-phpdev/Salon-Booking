@@ -61,7 +61,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                             $otherServices = '';
                                             if(isset($booking['other_services']) && !empty($booking['other_services'])):
                                                 $otherServicesArr = unserialize($booking['other_services']);
-                                                
+
                                                 foreach($otherServicesArr as $otherServicesVal){
                                                     if(!empty($otherServicesVal)){
 //                                                        $servicename = getServiceTitleByName($otherServicesVal);

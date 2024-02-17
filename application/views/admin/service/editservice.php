@@ -55,15 +55,25 @@ $this->load->view('admin/includes/navbar'); ?>
                                     <textarea id="service-content" name="service-content" class="form-control"><?php echo esc(set_value('service-content', $service['description']), true)?></textarea>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-12">
+                                    <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="service-price">Service Price <span class="text-danger">*</span></label>
                                                     <?php echo form_error('service-price', '<br><span class="text-danger">', '</span>'); ?>
                                                     <input data-decimals="2" min="1" step="0.1" class="form-control" type="number" id="service-price" name="service-price" placeholder="Choose Service Price" value="<?php echo esc(set_value('service-price', $service['price']), true)?>">
                                                 </div>
                                             </div>
+                                    <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="service-price">Special Price <span class="text-danger">*</span></label>
+                                                    <?php echo form_error('member_price', '<br><span class="text-danger">', '</span>'); ?>
+                                                    <input data-decimals="2" min="1" step="0.1" class="form-control" type="number" id="service-price" name="member_price" placeholder="Choose Service Price" value="<?php echo esc(set_value('member_price', $service['member_price']), true)?>">
+                                                </div>
+                                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -77,7 +87,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                                 <div class="form-group">
                                                     <label for="service-starts">Service Starts <span class="text-danger">*</span></label>
                                                     <?php echo form_error('service-starts', '<br><span class="text-danger">', '</span>'); ?>
-                                                    <input class="form-control" id="servStarts" type="text" name="service-starts" placeholder="Type: 08:00 PM" value="<?php echo set_value('service-starts', $service['servStart'])?>">
+                                                    <input class="form-control" id="servStarts" type="text" name="service-starts" placeholder="Type: 08:00 PM" value="<?php echo set_value('service-starts', $service['servStart']) ?? '10:00 AM'?>">
                                                 </div>
                                             </div>
 

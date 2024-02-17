@@ -185,12 +185,12 @@
 								<p>All Payments</p>
 							</a>
 						</li>
-						<li class="nav-item <?php echo_if($uri == PAYMENTS_CONTROLLER . '/stripe', 'active'); ?>">
+<!--						<li class="nav-item <?php echo_if($uri == PAYMENTS_CONTROLLER . '/stripe', 'active'); ?>">
 							<a href="<?php anchor_to(PAYMENTS_CONTROLLER . '/stripe') ?>">
 								<i class="fab fa-stripe"></i>
 								<p>Stripe Settings</p>
 							</a>
-						</li>
+						</li>-->
 						<li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>

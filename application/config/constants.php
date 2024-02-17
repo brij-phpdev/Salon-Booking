@@ -138,4 +138,5 @@ define('VENDOR_SUPPORT_URL',    "mailto:empiresalonagra@gmail.com");
 define('VENDOR_NAME',           "Empire Salon");
 define('PRODUCT_NAME',          "Salon - Booking System");
 define('PRODUCT_VERSION',       1.3);
-define('ENVATO_URL',            'https://codecanyon.net/item/salon-booking-management-system/28185575');
+//define('ENVATO_URL',            'https://codecanyon.net/item/salon-booking-management-system/28185575');
+define('CURRENCY_SYMBOL','₹');

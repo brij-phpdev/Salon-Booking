@@ -75,6 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
+//	'hostname' => 'localhost',
+//	'username' => 'root',
+//	'password' => '',
+//	'database' => 'salon_booking',
 	'hostname' => '62.72.28.103',
 	'username' => 'u963541063_salon_bkng_usr',
 	'password' => '0is+wkAI@l8',
