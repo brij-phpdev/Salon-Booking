@@ -31,7 +31,7 @@ class Homepage extends CI_Controller {
 	}
 
 	public function index() {
-            redirect('general/');
+            redirect(base_url('general/'));
 		$data 			= $this->ServiceModel->serviceList();
 		$gcategories 	= $this->GalleryModel->listCat();
         $galleryImages 	= $this->GalleryModel->listGallery();
