@@ -39,7 +39,7 @@ class Service extends CI_Controller {
          */
         
         	public function packages() {
-
+                    
 		$data = array(
             'page_data' 				=> $this->page_data,
             'page_title' 				=> 'Services Package',
