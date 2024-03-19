@@ -123,7 +123,7 @@ class Service extends CI_Controller {
             $this->load->view('admin/service/editCat', $data);
 		}
 		else{
-			redirect(base_url(SERVICE_CONTROLLER . '/categories'));
+			redirect(base_url(SERVICE_CONTROLLER . '/packages'));
 		}
 	}//edit & update category
 
@@ -139,7 +139,7 @@ class Service extends CI_Controller {
 			$this->ServiceModel->deleteServiceCategory($id);
 			$this->session->set_flashdata('alert', array('type' => 'alert alert-success', 'msg'  => 'Successfully delete package.'));
 		}
-		return redirect(SERVICE_CONTROLLER.'/categories');
+		return redirect(SERVICE_CONTROLLER.'/packages');
 	}//delete category
         
         /** 
