@@ -141,7 +141,7 @@ $this->load->view('admin/includes/navbar'); ?>
                             <div class="card-footer">
                                 <div class="form-group text-right">
                                     <input type="hidden" name="submit" value="Submit">
-                                    <a href="<?php anchor_to(SERVICE_CONTROLLER . '/services'); ?>" class="btn btn-danger text-white mr-4"><i class="fas fa-arrow-left mr-1"></i> Back</a>
+                                    <a href="<?php anchor_to(SERVICE_CONTROLLER ); ?>" class="btn btn-danger text-white mr-4"><i class="fas fa-arrow-left mr-1"></i> Back</a>
                                     <button class="btn btn-success"><i class="fas fa-plus mr-1"></i> Add Service</button>
                                 </div>
                             </div>
