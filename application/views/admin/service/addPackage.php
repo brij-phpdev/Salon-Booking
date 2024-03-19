@@ -21,7 +21,7 @@ $this->load->view('admin/includes/navbar'); ?>
                         <i class="flaticon-right-arrow"></i>
                     </li>
                     <li class="nav-home">
-                        <a href="<?php anchor_to(SERVICE_CONTROLLER . '/categories') ?>">
+                        <a href="<?php anchor_to(SERVICE_CONTROLLER . '/packages') ?>">
                         <?php echo esc($page_title) ?>
                         </a>
                     </li>
@@ -44,7 +44,7 @@ $this->load->view('admin/includes/navbar'); ?>
                             <div class="card-footer">
                                 <div class="form-group text-right">
                                     <input type="hidden" name="submit" value="Submit">
-                                    <a href="<?php anchor_to(SERVICE_CONTROLLER . '/categories'); ?>" class="btn btn-danger text-white mr-4"><i class="fas fa-arrow-left mr-1"></i> Back</a>
+                                    <a href="<?php anchor_to(SERVICE_CONTROLLER . '/packages'); ?>" class="btn btn-danger text-white mr-4"><i class="fas fa-arrow-left mr-1"></i> Back</a>
                                     <button class="btn btn-success"><i class="fas fa-plus mr-1"></i> Create Package</button>
                                 </div>
                             </div>

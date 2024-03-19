@@ -42,7 +42,7 @@ $this->load->view('admin/includes/navbar'); ?>
                             <div class="card-footer">
                                 <div class="form-group text-right">
                                     <input type="hidden" name="submit" value="Submit">
-                                    <a href="<?php anchor_to(SERVICE_CONTROLLER . '/categories'); ?>" class="btn btn-danger text-white mr-4"><i class="fas fa-arrow-left mr-1"></i> Back</a>
+                                    <a href="<?php anchor_to(SERVICE_CONTROLLER . '/packages'); ?>" class="btn btn-danger text-white mr-4"><i class="fas fa-arrow-left mr-1"></i> Back</a>
                                     <button class="btn btn-success"><i class="fas fa-save mr-1"></i> Save Changes</button>
                                 </div>
                             </div>
