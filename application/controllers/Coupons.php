@@ -148,7 +148,7 @@ class Coupons extends CI_Controller {
 				}
         }
 		$this->load->view('admin/coupons/addcoupon', $data);
-        redirect(base_url(COUPONS_CONTROLLER));
+//        redirect(base_url(COUPONS_CONTROLLER));
 	}
 
 	public function editcoupon($id = null) {
