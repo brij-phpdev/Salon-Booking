@@ -147,7 +147,7 @@ class Coupons extends CI_Controller {
 					$data['logo_error'] = $this->upload->display_errors();
 				}
         }
-//		$this->load->view('admin/coupons/addcoupon', $data);
+		$this->load->view('admin/coupons/addcoupon', $data);
         redirect(base_url(COUPONS_CONTROLLER));
 	}
 
