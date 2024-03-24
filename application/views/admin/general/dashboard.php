@@ -139,7 +139,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                                         <td><?php echo esc($booking['adults'], true) ?></td>
                                                         <td><?php echo esc($booking['childrens'], true) ?></td>
                                                         <td><?php echo esc($booking['fullName'], true) ?></td>
-                                                        <td><?php echo '$'.($booking['adults'] + $booking['childrens'])*$booking['price'] ?></td>
+                                                        <td><?php echo  '₹'.($booking['adults'] + $booking['childrens'])*$booking['price'] ?></td>
                                                         <td><?php if($booking['serviceStatus'] == '' || $booking['serviceStatus'] == '0'){ echo '<span class="badge badge-warning">Pending</span>'; } else if($booking['serviceStatus'] == '1') { echo '<span class="badge badge-success">Confirmed</span>'; } else if($booking['serviceStatus'] == '2') { echo '<span class="badge badge-secondary">Cancelled</span>'; } ?></td>
                                                         <td><?php if(!$booking['paymentStatus']){ echo '<span class="badge badge-danger">Due</span>'; } else { echo '<span class="badge badge-success">paid</span>'; } ?></td>
                                                         <td class="text-right">
