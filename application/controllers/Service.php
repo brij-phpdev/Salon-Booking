@@ -463,11 +463,11 @@ class Service extends CI_Controller {
 						'label'     => 'Duration',
 						'rules'     => 'required'
 					),
-					array(
-						'field'     => 'agent[]',
-						'label'     => 'Agent',
-						'rules'     => 'required'
-					)
+//					array(
+//						'field'     => 'agent[]',
+//						'label'     => 'Agent',
+//						'rules'     => 'required'
+//					)
 				);
 
                 $this->form_validation->set_rules($rules);
