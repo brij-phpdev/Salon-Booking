@@ -109,7 +109,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+<!--                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="service-starts">Service Starts <span class="text-danger">*</span></label>
                                                     <?php echo form_error('service-starts', '<br><span class="text-danger">', '</span>'); ?>
@@ -123,7 +123,29 @@ $this->load->view('admin/includes/navbar'); ?>
                                                     <?php echo form_error('service-ends', '<br><span class="text-danger">', '</span>'); ?>
                                                     <input class="form-control" id="servEnds" type="text" name="service-ends" placeholder="Type: 05:00 PM" value="<?php echo esc(set_value('service-ends', $service['servEnd']), true)?>">
                                                 </div>
-                                            </div>
+                                            </div>-->
+
+                                <div class="row">
+                                     <div class="col-md-6">
+                                        
+                                                <div class="form-group">
+                                                    <label for="starts_at">Starts At<span class="text-danger">*</span></label>
+                                                    <?php echo form_error('starts_at', '<br><span class="text-danger">', '</span>'); ?>
+                                                    
+                                                    <input class="form-control" type="date" id="starts_at" name="starts_at" placeholder="" value="<?php echo set_value('discount_amount')?>">
+                                                </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                                <div class="form-group">
+                                                    <label for="expires_at">Expires At<span class="text-danger">*</span></label>
+                                                    <?php echo form_error('expires_at', '<br><span class="text-danger">', '</span>'); ?>
+                                                    
+                                                    <input class="form-control" type="date" id="expires_at" name="expires_at" placeholder="" value="<?php echo set_value('expires_at')?>">
+                                                </div>
+                                    </div>
+
+                                </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
