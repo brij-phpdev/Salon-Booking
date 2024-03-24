@@ -448,21 +448,21 @@ class Service extends CI_Controller {
 						'label'     => 'Space',
 						'rules'     => 'required'
 					),
-					array(
-						'field'     => 'service-starts',
-						'label'     => 'Starts',
-						'rules'     => 'required'
-					),
-					array(
-						'field'     => 'service-ends',
-						'label'     => 'Ends',
-						'rules'     => 'required'
-					),
-					array(
-						'field'     => 'service-duration',
-						'label'     => 'Duration',
-						'rules'     => 'required'
-					),
+//					array(
+//						'field'     => 'service-starts',
+//						'label'     => 'Starts',
+//						'rules'     => 'required'
+//					),
+//					array(
+//						'field'     => 'service-ends',
+//						'label'     => 'Ends',
+//						'rules'     => 'required'
+//					),
+//					array(
+//						'field'     => 'service-duration',
+//						'label'     => 'Duration',
+//						'rules'     => 'required'
+//					),
 //					array(
 //						'field'     => 'agent[]',
 //						'label'     => 'Agent',
@@ -489,11 +489,7 @@ class Service extends CI_Controller {
 						'agentIds'      => $agentArray
 					);
                     
-                            $this->load->library('upload', array(
-                                        'upload_path' => APPPATH.'uploads/package-offers/',
-                                        'allowed_types' => 'gif|jpg|png|jpeg|svg',
-                                        'overwrite' => true,
-                                ));
+                            
 					
 					if(file_exists($_FILES['site-logo']['tmp_name'])) {
 
@@ -514,7 +510,11 @@ class Service extends CI_Controller {
 							
 					}
                                         
-                                        
+                                       $this->load->library('upload', array(
+                                            'upload_path' => APPPATH.'uploads/package-offers/',
+                                            'allowed_types' => 'gif|jpg|png|jpeg|svg',
+                                            'overwrite' => true,
+                                    )); 
                                         
                                         if(file_exists($_FILES['offer_img_front']['tmp_name'])) {
                                             
@@ -541,7 +541,8 @@ class Service extends CI_Controller {
 						}
 					}
                                         
-
+//                                        print_r($_FILES);
+//                                        print_r($to_update);die;
 					$this->ServiceModel->updateService($id, $to_update);
 					$data['service'] = $this->ServiceModel->getservice($service['id']);
                     $this->session->set_flashdata('alert', array('type' => 'alert alert-success', 'msg'  => 'Successfully updated service.'));

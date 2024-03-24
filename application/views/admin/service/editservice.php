@@ -75,7 +75,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                     <label for="offer_img_front">Select Offer Front Image <span class="text-danger">*</span></label>
                                     <?php echo isset($offer_img_front_error) ? '<div class="alert alert-danger">' . $offer_img_front_error . '</div>' : '' ?>
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview" src="<?php uploads('coupons/'.$coupon['offer_img_front']);?>" alt="preview" width="150">
+                                        <img class="img-upload-preview" src="<?php uploads('package-offers/'.$service['offer_img_front']);?>" alt="preview" width="150">
 
                                         <input for="offer_img_front" type="file" class="form-control form-control-file" id="offer_img_front" name="offer_img_front">
                                         <label for="offer_img_front" class="label-input-file btn btn-black btn-round">
@@ -87,7 +87,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                     <label for="offer_img_back">Select Offer Back Image <span class="text-danger">*</span></label>
                                     <?php echo isset($offer_img_back_error) ? '<div class="alert alert-danger">' . $offer_img_back_error . '</div>' : '' ?>
                                     <div class="input-file input-file-image">
-                                        <img class="img-upload-preview" src="<?php uploads('coupons/'.$coupon['offer_img_back']);?>" alt="preview" width="150">
+                                        <img class="img-upload-preview" src="<?php uploads('package-offers/'.$service['offer_img_back']);?>" alt="preview" width="150">
 
                                         <input for="offer_img_back" type="file" class="form-control form-control-file" id="offer_img_back" name="offer_img_back">
                                         <label for="offer_img_back" class="label-input-file btn btn-black btn-round">
@@ -132,7 +132,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                                     <label for="starts_at">Starts At<span class="text-danger">*</span></label>
                                                     <?php echo form_error('starts_at', '<br><span class="text-danger">', '</span>'); ?>
                                                     
-                                                    <input class="form-control" type="date" id="starts_at" name="starts_at" placeholder="" value="<?php echo set_value('discount_amount')?>">
+                                                    <input class="form-control" type="date" id="starts_at" name="starts_at" placeholder="" value="<?php echo set_value('starts_at', date("Y-m-d", strtotime($service['starts_at'])))?>">
                                                 </div>
                                     </div>
                                     <div class="col-md-6">
@@ -141,7 +141,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                                     <label for="expires_at">Expires At<span class="text-danger">*</span></label>
                                                     <?php echo form_error('expires_at', '<br><span class="text-danger">', '</span>'); ?>
                                                     
-                                                    <input class="form-control" type="date" id="expires_at" name="expires_at" placeholder="" value="<?php echo set_value('expires_at')?>">
+                                                    <input class="form-control" type="date" id="expires_at" name="expires_at" placeholder="" value="<?php echo set_value('expires_at', date("Y-m-d", strtotime($service['expires_at'])))?>">
                                                 </div>
                                     </div>
 
@@ -154,19 +154,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                                     <input class="form-control" type="text" id="service-duration" name="service-duration" placeholder="Service Duration: 02:30" value="<?php echo esc(set_value('service-duration', $service['servDuration']), true)?>">
                                                 </div>
                                             </div>
-											<div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="agent">Select Agent <span class="text-danger">*</span></label>
-                                                    <?php echo form_error('agent[]', '<br><span class="text-danger">', '</span>'); ?>
-                                                    <select id="multiple" name="agent[]" class="form-control" multiple="multiple">
-														<optgroup label="Select Agent">
-															<?php foreach($agents as $agent){ ?>
-                                                                <option <?php if(in_array($agent['id'], $service['agentIds'])) { ?>selected<?php } ?> value="<?php echo esc($agent['id'], true)?>"><?php echo esc($agent['agentName'], true)?></option>
-                                                            <?php } ?>
-														</optgroup>
-                                                    </select>
-                                                </div>
-                                            </div>
+									
                                         </div>
                                     </div>
                                     <div class="col-md-6">
