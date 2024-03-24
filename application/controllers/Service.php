@@ -192,6 +192,8 @@ class Service extends CI_Controller {
             $price    	= $this->input->post('service-price');
             $member_price    	= $this->input->post('member_price');
             $space    	= $this->input->post('service-space');
+            $starts_at      = $this->security->xss_clean($this->input->post('starts_at'));
+            $expires_at        = $this->security->xss_clean($this->input->post('expires_at'));
             $starts    	= $this->input->post('service-starts');
             $ends    	= $this->input->post('service-ends');
 			$duration   = $this->input->post('service-duration');
@@ -223,38 +225,34 @@ class Service extends CI_Controller {
                     'label'     => 'Price',
                     'rules'     => 'required|numeric|greater_than[0.99]'
                 ),
+//                array(
+//                    'field'     => 'service-space',
+//                    'label'     => 'Space',
+//                    'rules'     => 'required'
+//				),
                 array(
-                    'field'     => 'service-space',
-                    'label'     => 'Space',
+                    'field'     => 'starts_at',
+                    'label'     => 'Starts At',
                     'rules'     => 'required'
 				),
                 array(
-                    'field'     => 'service-starts',
-                    'label'     => 'Starts',
+                    'field'     => 'expires_at',
+                    'label'     => 'Expires At',
                     'rules'     => 'required'
 				),
-                array(
-                    'field'     => 'service-ends',
-                    'label'     => 'Ends',
-                    'rules'     => 'required'
-				),
-                array(
-                    'field'     => 'service-duration',
-                    'label'     => 'Duration',
-                    'rules'     => 'required'
-				),
-                array(
-                    'field'     => 'agent[]',
-                    'label'     => 'Agent',
-                    'rules'     => 'required'
-                )
+//                array(
+//                    'field'     => 'service-duration',
+//                    'label'     => 'Duration',
+//                    'rules'     => 'required'
+//				),
+//                
 			);
 			
             $this->form_validation->set_rules($rules);
 			$validation = $this->form_validation->run();
 			
 			$this->load->library('upload', array(
-				'upload_path' => APPPATH.'uploads/img/',
+				'upload_path' => APPPATH.'uploads/package-offers/',
 				'allowed_types' => 'gif|jpg|png|jpeg|svg',
 				'overwrite' => true,
 			));
@@ -271,6 +269,8 @@ class Service extends CI_Controller {
 						'price'       	=> $price,
                                                 'member_price'      	=> $member_price,
 						'servSpace'     => $space,
+                                            	'starts_at'        => $starts_at,
+						'expires_at'     => $expires_at,
 						'servStart'     => $starts,
 						'servEnd'       => $ends,
 						'servDuration'  => $duration,
@@ -287,6 +287,33 @@ class Service extends CI_Controller {
 							$data['logo_error'] = $this->upload->display_errors();
 						}
 					}
+                                        
+                                        
+                                        if(file_exists($_FILES['offer_img_front']['tmp_name'])) {
+                                            
+						$success = $this->upload->do_upload('offer_img_front');
+//                                                print_r($success);die;
+						if($success) {
+							$res = $this->upload->data();
+							$name = $res['file_name'];
+							$new_page['offer_img_front'] = $name;
+						} else {
+							$data['offer_img_front_error'] = $this->upload->display_errors();
+						}
+					}
+                                        if(file_exists($_FILES['offer_img_back']['tmp_name'])) {
+                                            
+						$success = $this->upload->do_upload('offer_img_back');
+//                                                print_r($success);die;
+						if($success) {
+							$res = $this->upload->data();
+							$name = $res['file_name'];
+							$new_page['offer_img_back'] = $name;
+						} else {
+							$data['offer_img_back_error'] = $this->upload->display_errors();
+						}
+					}
+                                        
 					
 					$this->ServiceModel->addService($new_page);
 					$data['alert'] = array('type' => 'alert alert-success', 'msg' => 'Service Added Successfully.');
@@ -393,6 +420,8 @@ class Service extends CI_Controller {
 				$ends    	= $this->input->post('service-ends');
 				$duration   = $this->input->post('service-duration');
 				$agent   	= $this->input->post('agent[]');
+                                $starts_at      = $this->security->xss_clean($this->input->post('starts_at'));
+                                $expires_at        = $this->security->xss_clean($this->input->post('expires_at'));
 	
 				if($agent){
 					$agentArray	= implode (",", $agent);
@@ -452,11 +481,19 @@ class Service extends CI_Controller {
 						'price'      	=> $price,
 						'member_price'      	=> $member_price,
 						'servSpace'     => $space,
+                                                'starts_at'        => $starts_at,
+						'expires_at'     => $expires_at,
 						'servStart'     => $starts,
 						'servEnd'       => $ends,
 						'servDuration'  => $duration,
 						'agentIds'      => $agentArray
 					);
+                    
+                            $this->load->library('upload', array(
+                                        'upload_path' => APPPATH.'uploads/package-offers/',
+                                        'allowed_types' => 'gif|jpg|png|jpeg|svg',
+                                        'overwrite' => true,
+                                ));
 					
 					if(file_exists($_FILES['site-logo']['tmp_name'])) {
 
@@ -476,6 +513,34 @@ class Service extends CI_Controller {
 						}
 							
 					}
+                                        
+                                        
+                                        
+                                        if(file_exists($_FILES['offer_img_front']['tmp_name'])) {
+                                            
+						$success = $this->upload->do_upload('offer_img_front');
+//                                                print_r($success);die;
+						if($success) {
+							$res = $this->upload->data();
+							$name = $res['file_name'];
+							$to_update['offer_img_front'] = $name;
+						} else {
+							$data['offer_img_front_error'] = $this->upload->display_errors();
+						}
+					}
+                                        if(file_exists($_FILES['offer_img_back']['tmp_name'])) {
+                                            
+						$success = $this->upload->do_upload('offer_img_back');
+//                                                print_r($success);die;
+						if($success) {
+							$res = $this->upload->data();
+							$name = $res['file_name'];
+							$to_update['offer_img_back'] = $name;
+						} else {
+							$data['offer_img_back_error'] = $this->upload->display_errors();
+						}
+					}
+                                        
 
 					$this->ServiceModel->updateService($id, $to_update);
 					$data['service'] = $this->ServiceModel->getservice($service['id']);

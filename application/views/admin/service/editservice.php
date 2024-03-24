@@ -71,6 +71,32 @@ $this->load->view('admin/includes/navbar'); ?>
                                             </div>
                                 </div>
                                 <div class="row">
+                                    <div class="form-group">
+                                    <label for="offer_img_front">Select Offer Front Image <span class="text-danger">*</span></label>
+                                    <?php echo isset($offer_img_front_error) ? '<div class="alert alert-danger">' . $offer_img_front_error . '</div>' : '' ?>
+                                    <div class="input-file input-file-image">
+                                        <img class="img-upload-preview" src="<?php uploads('coupons/'.$coupon['offer_img_front']);?>" alt="preview" width="150">
+
+                                        <input for="offer_img_front" type="file" class="form-control form-control-file" id="offer_img_front" name="offer_img_front">
+                                        <label for="offer_img_front" class="label-input-file btn btn-black btn-round">
+                                            <span class="btn-label"><i class="fa fa-file-image"></i></span> Upload a Image
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="offer_img_back">Select Offer Back Image <span class="text-danger">*</span></label>
+                                    <?php echo isset($offer_img_back_error) ? '<div class="alert alert-danger">' . $offer_img_back_error . '</div>' : '' ?>
+                                    <div class="input-file input-file-image">
+                                        <img class="img-upload-preview" src="<?php uploads('coupons/'.$coupon['offer_img_back']);?>" alt="preview" width="150">
+
+                                        <input for="offer_img_back" type="file" class="form-control form-control-file" id="offer_img_back" name="offer_img_back">
+                                        <label for="offer_img_back" class="label-input-file btn btn-black btn-round">
+                                            <span class="btn-label"><i class="fa fa-file-image"></i></span> Upload a Image
+                                        </label>
+                                    </div>
+                                </div>
+                                </div>    
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="row">
                                             
