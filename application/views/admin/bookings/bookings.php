@@ -38,7 +38,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Service</th>
-                                            <th scope="col">Agent</th>
+                                            <!--<th scope="col">Agent</th>-->
                                             <th scope="col">Date</th>
                                             <th scope="col">Time</th>
                                             <th scope="col">Adults</th>
@@ -76,7 +76,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                         <tr>
                                             <td><?php echo esc($booking['id'], true) ?></td>
                                             <td><?php echo esc($booking['servicetitle'], true) .$otherServices ?></td>
-                                            <td><?php if($booking['agents_id']==0 ||$booking['agents_id']==''){echo 'Any Agent';}else{echo esc($booking['agentName'], true);} ?></td>
+                                            <!--<td><?php if($booking['agents_id']==0 ||$booking['agents_id']==''){echo 'Any Agent';}else{echo esc($booking['agentName'], true);} ?></td>-->
                                             <td><?php echo esc($booking['date'], true) ?></td>
                                             <td><?php echo esc($booking['timing'], true) ?></td>
                                             <td><?php echo esc($booking['adults'], true) ?></td>

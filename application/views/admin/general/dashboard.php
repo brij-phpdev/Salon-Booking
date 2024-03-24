@@ -112,7 +112,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Service Name</th>
-                                                    <th scope="col">Agent Name</th>
+                                                    <!--<th scope="col">Agent Name</th>-->
                                                     <th scope="col">Date</th>
                                                     <th scope="col">Time</th>
                                                     <th scope="col">Adults</th>
@@ -133,7 +133,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                                 <?php foreach($page_data['recent_bookings'] as $i => $booking) {?>
                                                     <tr>
                                                         <td><?php echo esc($booking['title'], true) ?></td>
-                                                        <td><?php if($booking['agents_id']==0 ||$booking['agents_id']==''){echo 'Any Agent';}else{echo esc($booking['agentName'], true);} ?></td>
+                                                        <!--<td><?php if($booking['agents_id']==0 ||$booking['agents_id']==''){echo 'Any Agent';}else{echo esc($booking['agentName'], true);} ?></td>-->
                                                         <td><?php echo esc($booking['date'], true) ?></td>
                                                         <td><?php echo esc($booking['timing'], true) ?></td>
                                                         <td><?php echo esc($booking['adults'], true) ?></td>
