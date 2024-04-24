@@ -82,6 +82,18 @@
             $res = $this->db->limit(1)->where('id', $id)->get('servicetable')->row_array();
             return $res;
         }
+        
+        public function getOtherServices($serialize_str) {
+            
+            $service_serialze_reverse = unserialize($serialize_str);
+            $pure_array = (array_filter($service_serialze_reverse));
+            $other_services = array();
+            foreach($pure_array as $c => $service):
+                $id = base64_decode($service);
+                $other_services[] = $this->db->limit(1)->where('id', $id)->get('servicetable')->row_array();
+            endforeach;
+            return $other_services;
+        }
 
         public function updateService($id, Array $fields){
             $query = $this->db->where(['id'=>$id])->update('servicetable',$fields);

@@ -100,6 +100,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                                         <?php if($booking['serviceStatus'] != '2' && !$booking['serviceStatus']) { ?>
                                                         <a href="<?php anchor_to(BOOKINGS_CONTROLLER . '/bookingCancel/' . esc($booking['id'], true). '/true') ?>" class="btn btn-link btn-primary dropdown-item">Cancel</a>
                                                         <?php } ?>
+                                                        <a href="<?php anchor_to(BOOKINGS_CONTROLLER . '/bookingReschedule/' . esc($booking['id'], true)) ?>" class="btn btn-link btn-primary dropdown-item">Reschedule</a>
                                                         <button type="button" class="btn btn-link btn-danger dropdown-item deleteBookings" value="<?php echo esc($booking['id'], true) ?>">Delete</button>
                                                     </div>
                                                 </div>   

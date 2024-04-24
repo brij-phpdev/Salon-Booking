@@ -135,6 +135,11 @@
 				return false;
 			}
 		}
+                
+                public function updateBooking($id, Array $fields){
+                    $query = $this->db->where(['id'=>$id])->update('bookingtbl',$fields);
+                    return $query;
+                }
 	}
 
 ?>

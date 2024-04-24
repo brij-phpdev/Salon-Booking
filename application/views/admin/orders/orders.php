@@ -41,7 +41,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Order ID</th>
-                                            <th scope="col">Transection ID</th>
+                                            <th scope="col">Transaction ID</th>
                                             <th scope="col">User Email</th>
                                             <th scope="col">Service</th>
                                             <th scope="col">Amount</th>
@@ -60,7 +60,7 @@ $this->load->view('admin/includes/navbar'); ?>
                                         <tr>
                                             <td><?php echo esc($order['id'], true) ?></td>
                                             <td><?php echo esc($order['orderId'], true) ?></td>
-                                            <td><?php echo esc($order['transectionId'], true) ?></td>
+                                            <td><?php echo esc($order['transactionId'], true) ?></td>
                                             <td><?php echo esc($order['email'], true) ?></td>
                                             <td><?php echo esc($order['title'], true) ?></td>
                                             <td><?php echo esc($order['paid_amount'], true) ?></td>
